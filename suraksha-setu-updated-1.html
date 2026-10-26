@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Suraksha Setu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#F7F3EA;--ink:#0F1B3D;--amb:#FFC24B;--amd:#D98A00;--line:#E2DCCB;--mut:#6B6F85;--red:#D64545;--grn:#2E8B57}
+body{font:400 15px/1.5 Poppins,system-ui,sans-serif;background:#E9E3D3;color:var(--ink)}
+#app{max-width:430px;min-height:100vh;margin:0 auto;background:var(--bg);position:relative;overflow-x:hidden}
+@media(min-width:520px){#app{min-height:0;height:860px;margin:24px auto;border-radius:32px;box-shadow:0 20px 60px #0f1b3d33;overflow-y:auto}}
+header{display:flex;align-items:center;gap:10px;padding:14px 18px;position:sticky;top:0;background:var(--bg);z-index:5}
+header h1{font-size:17px;font-weight:600;flex:1}.lg{flex:1}
+.ib{width:38px;height:38px;border-radius:12px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;color:var(--ink);font-size:14px}
+main{padding:4px 18px 32px}
+h2{font-size:22px;font-weight:600}h3{font-size:15px;font-weight:600;margin:24px 0 8px}
+.mut{color:var(--mut)}.sm{font-size:13px}.c{text-align:center}
+small{display:block;color:var(--mut);font-size:12px}
+label{display:block;font-size:13px;font-weight:500;margin:14px 0 6px}
+input,textarea,select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;font:inherit;color:var(--ink);outline:0}
+input:focus,textarea:focus,select:focus,button:focus-visible{outline:2px solid var(--amd);outline-offset:2px}
+.btn{width:100%;padding:14px;border:0;border-radius:14px;background:var(--ink);color:#fff;font:500 15px Poppins,sans-serif;margin-top:14px;cursor:pointer;display:flex;gap:8px;align-items:center;justify-content:center;text-decoration:none}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}.btn.red{background:var(--red)}.btn.off{opacity:.45}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;margin-top:14px}
+.grid,.stats,.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.two{gap:10px;margin:0}.stats .card{margin:0}.stats b{font-size:22px;display:block}
+.tool{background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px;text-align:left;cursor:pointer;font:inherit;color:inherit;display:flex;flex-direction:column;gap:2px;transition:transform .15s}.tool:active{transform:scale(.97)}
+.ico{width:44px;height:44px;border-radius:14px;background:#FFF0C9;display:grid;place-items:center;margin-bottom:8px;flex:none}
+.tool b,.row b{font-weight:600;font-size:14px}
+.row{display:flex;gap:12px;align-items:center;width:100%;background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px;margin-top:12px;text-align:left;font:inherit;color:inherit}.row .ico{margin:0}
+button.row{cursor:pointer}
+.sos{width:100%;display:flex;gap:14px;align-items:center;background:var(--red);color:#fff;border:0;border-radius:24px;padding:20px;margin-top:16px;text-align:left;font:inherit;cursor:pointer;box-shadow:0 8px 20px #d6454538}.sos b{font-size:22px;display:block}.sos small{color:#ffe3e3}
+.hero{text-align:center;padding:36px 0 14px}.hero h2{margin-top:18px}
+.seg{display:flex;background:#EDE7D6;border-radius:14px;padding:4px;gap:4px;margin:14px 0}.seg button{flex:1;border:0;background:0;padding:10px 6px;border-radius:11px;font:500 13px Poppins,sans-serif;color:var(--mut);cursor:pointer}.seg .on{background:#fff;color:var(--ink);box-shadow:0 1px 4px #0f1b3d1a}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}.chips button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:8px 14px;font:400 13px Poppins,sans-serif;color:var(--ink);cursor:pointer}.chips .on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.drop{display:grid;place-items:center;min-height:170px;border:2px dashed #D9CFB4;border-radius:20px;background:#fff;text-align:center;cursor:pointer;overflow:hidden;margin:6px 0 0}.drop.s{min-height:100px;margin:10px 0}.drop span{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px}.drop img{width:100%;max-height:220px;object-fit:cover;display:block}
+.rh{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.tag{font-size:11px;font-weight:500;padding:3px 10px;border-radius:99px;background:#EDE7D6;white-space:nowrap}.s-1,.sd{background:#FBE0E0;color:#A02A2A}.s1,.s2,.s3{background:#FFF0C9;color:#8A5A00}.s4{background:#DDF1E5;color:#1F6B42}
+.steps{display:flex;gap:5px;margin-top:12px}.steps i{flex:1;height:5px;border-radius:9px;background:#E8E1CE}.steps .on{background:var(--amd)}
+.th{width:100%;height:120px;object-fit:cover;border-radius:14px;margin-bottom:10px}
+.meter{height:7px;background:#EDE7D6;border-radius:9px;margin:10px 0 8px;overflow:hidden}.meter i{display:block;height:100%;background:var(--amd);border-radius:9px}
+.best{border-color:var(--amb);box-shadow:0 0 0 3px #ffc24b33}
+.clock{font-size:54px;font-weight:600;letter-spacing:1px;margin:6px 0}.clock.q{font-size:38px}
+.bigsos{position:relative;width:180px;height:180px;border-radius:50%;border:0;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;margin:26px auto;box-shadow:0 0 0 14px #d6454520;touch-action:none;cursor:pointer;overflow:hidden;font:600 16px Poppins,sans-serif}
+.bigsos i{position:absolute;inset:0;background:#0f1b3d55;transform:scale(0);border-radius:50%;transition:transform .2s}.bigsos.go i{transform:scale(1);transition:transform 2s linear}
+.bigsos svg,.bigsos b{position:relative}
+.st{display:flex;gap:10px;align-items:center;padding:8px 0;color:var(--grn);animation:in .4s}.st span{color:var(--ink);font-size:14px}
+@keyframes in{from{opacity:0;transform:translateY(6px)}}
+.call{position:absolute;inset:0;background:var(--ink);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;z-index:20}.call .mut{color:#9FAEDB}
+.ca{display:flex;gap:60px;margin-top:80px}.ca button{width:64px;height:64px;border-radius:50%;border:0;color:#fff;display:grid;place-items:center;cursor:pointer}.rd{background:var(--red)}.rd svg{transform:rotate(135deg)}.gr{background:var(--grn)}
+.ecard{margin-top:16px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--amb);border-radius:20px;padding:18px}.ecard p{font-size:14px;margin-top:6px}
+.splash{min-height:640px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}.bar{width:120px;height:4px;background:#E8E1CE;border-radius:9px;overflow:hidden;margin-top:22px}.bar i{display:block;height:100%;width:0;background:var(--amd);animation:ld 1.8s linear forwards}@keyframes ld{to{width:100%}}
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:11px 18px;border-radius:99px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:99;max-width:90%;text-align:center}#toast.on{opacity:1;transform:translate(-50%,0)}
+.sw{display:flex;gap:10px;align-items:center;font-size:14px;margin-top:16px}.sw input{width:auto}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.seg button{font-size:12px;padding:10px 2px}.ib[disabled]{opacity:.4}
+.jm{height:240px;border-radius:20px;overflow:hidden;border:1px solid var(--line);margin-top:14px;z-index:0}
+</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css"></head><body><div id="app"></div><div id="toast" role="status"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const IC={pin:'<path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>',route:'<polygon points="3 11 22 2 13 21 11 13 3 11"/>',clock:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',alert:'<path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/><path d="M12 9v4M12 17h.01"/>',users:'<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/>',phone:'<path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/>',card:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M15 9h3M15 13h3M6 17c.5-2 5.5-2 6 0"/>',cam:'<path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/>',back:'<polyline points="15 18 9 12 15 6"/>',out:'<path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>',list:'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',check:'<polyline points="20 6 9 17 4 12"/>',live:'<circle cx="12" cy="12" r="2"/><path d="M16.2 7.8a6 6 0 010 8.4M7.8 16.2a6 6 0 010-8.4M19 5a10 10 0 010 14M5 19a10 10 0 010-14"/>',helper:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>',zone:'<path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/>'};
+const ic=(n,s=22)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
+const logo=(w=200)=>`<svg width="${w}" viewBox="0 0 250 80" role="img" aria-label="Suraksha Setu"><text x="10" y="58" font-size="32" font-weight="600" fill="#0F1B3D" textLength="135" lengthAdjust="spacingAndGlyphs">Suraksha</text><path d="M56 19L63 22V28Q63 33 56 36Q49 33 49 28V22Z" fill="#E59A00"/><circle cx="56" cy="27" r="2.2" fill="#fff"/><text x="157" y="58" font-size="32" font-weight="600" fill="#D98A00" textLength="33" lengthAdjust="spacingAndGlyphs">Se</text><circle cx="205" cy="32" r="5.5" fill="#D98A00"/><path d="M195 46H215" stroke="#D98A00" stroke-width="4" stroke-linecap="round"/><path d="M202 47L208 47L216 58L194 58Z" fill="#D98A00"/><text x="219" y="58" font-size="32" font-weight="600" fill="#D98A00" textLength="19" lengthAdjust="spacingAndGlyphs">u</text></svg>`;
+// Backend URL for Voice SOS (contacts, alerts). Change this when the backend is deployed.
+// NOTE: this page must be served over http(s) (not opened as a file://) for the backend
+// call and for the browser's voice-listening permission to work.
+const API_BASE='http://localhost:5000';
+const DEFAULT_LOCATION = {
+  lat: 26.774682,
+  lng: 81.077793
+};
+const $=s=>document.querySelector(s),app=$('#app'),D=864e5,now=Date.now();
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ST=['Submitted','Verified','Sent to authority','Work started','Fixed'],HOMES=['home','vol','adm'];
+const S={role:'citizen',stack:['splash'],cat:'',photo:null,loc:'',vt:'v',contacts:[],card:{},dur:900,fd:0,jmin:15,jr:null,jh:[],zn:[],zf:'all',hr:[],here:null,token:null,uid:null,voiceOn:false,danger:null,mediaReady:(localStorage.getItem('ss-media-ready')==='1'),mediaStream:null,mediaRecorder:null,mediaChunks:[],mediaUploadBusy:false,helpers:[
+{id:'H1',n:'Ananya S.',club:'Rotaract District 3120',off:[.0035,-.002],v:1,av:1},
+{id:'H2',n:'Rohit M.',club:'Rotaract District 3120',off:[-.005,.004],v:1,av:1},
+{id:'H3',n:'Kavya T.',club:'Rotaract District 3120',off:[.008,.006],v:1,av:0},
+{id:'H4',n:'Imran K.',club:'Rotaract District 3120',off:[.002,.009],v:0,av:1}],reports:[
+{id:'SS-1001',cat:'Light not working',place:'Lajpat Nagar, Lane 4',st:0,d:now-D},
+{id:'SS-1002',cat:'Isolated lane',place:'Sector 62, Noida',st:2,d:now-18*D},
+{id:'SS-1003',cat:'No light at all',place:'Dwarka, Sector 12',st:3,d:now-9*D},
+{id:'SS-1004',cat:'Light not working',place:'Indirapuram, Gaur City Road',st:4,d:now-30*D,fx:now-12*D}]};
+const age=r=>Math.floor((Date.now()-r.d)/D),fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+const stl=r=>r.st<0?'Rejected':ST[r.st];
+const toast=m=>{const t=$('#toast');t.textContent=m;t.className='on';clearTimeout(toast.t);toast.t=setTimeout(()=>t.className='',2200)};
+let INT=[];const every=(f,ms)=>INT.push(setInterval(f,ms)),clr=()=>{INT.forEach(clearInterval);INT=[]},cur=()=>S.stack[S.stack.length-1];
+const go=(n,rep)=>{clr();rep?S.stack[S.stack.length-1]=n:S.stack.push(n);render()};
+const root=n=>{clr();S.stack=[n];render()},back=()=>{clr();if(S.stack.length>1)S.stack.pop();render()};
+const thumb=r=>r.photo?`<img class="th" src="${r.photo}" alt="Reported spot">`:'';
+const TOOLS=[['voice','alert','Voice SOS','Say "help" 3 times to alert'],['journey','live','Live journey','Share your trip live'],['helpers','helper','Verified helpers','Help from nearby'],['zones','zone','Safe zones','Police, hospitals, pharmacies'],['report','cam','Report a spot','Photo and pin'],['route','route','Safe route','Lit, busy paths'],['timer','clock','Check-in timer','Alerts if you are late'],['guard','users','Guardian circle','Your trusted people'],['fake','phone','Fake call','Step away safely'],['card','card','Emergency card','Key details ready']];
+function gl(){return S.contacts.length?S.contacts.map((c,i)=>`<div class="row"><span class="ico">${ic('users',20)}</span><span style="flex:1"><b>${esc(c.n)}</b><small>${esc(c.p)}</small></span><button class="ib" data-act="grm" data-v="${i}" aria-label="Remove ${esc(c.n)}">✕</button></div>`).join(''):'<p class="mut sm c" style="margin-top:16px">No one added yet. Add at least two people you trust.</p>'}
+function cv(){const c=S.card;return c.n?`<div class="ecard">${logo(120)}<h3>${esc(c.n)}</h3><p><b>Blood group:</b> ${esc(c.b||'Not set')}</p><p><b>Notes:</b> ${esc(c.m||'None')}</p><p><b>Emergency contact:</b> ${esc(c.c||'Not set')}</p></div>`:'<p class="mut sm c" style="margin-top:16px">Fill in your details to see the card.</p>'}
+function vlist(){if(S.vt=='r')return vreq();const t=S.vt,R=S.reports.filter(r=>t=='v'?r.st==0:t=='f'?r.st==2||r.st==3:r.st==3);if(!R.length)return'<p class="mut c" style="margin-top:24px">Nothing waiting here. Good work.</p>';
+return R.map(r=>`<div class="card">${thumb(r)}<div class="rh"><b>${r.id}</b><span class="tag s${r.st}">${stl(r)}</span></div><p>${esc(r.cat)}</p><p class="mut sm">${esc(r.place)}, ${age(r)} days ago</p>`+(t=='v'?`<button class="btn ghost" data-act="near" data-v="${r.id}">${r.near?'You are at the spot':'Check I am at the spot'}</button><div class="two" style="margin-top:10px"><button class="btn ${r.near?'':'off'}" style="margin:0" data-act="rreal" data-v="${r.id}">Real</button><button class="btn red ${r.near?'':'off'}" style="margin:0" data-act="rfake" data-v="${r.id}">Fake</button></div>`:t=='f'?`<div class="two" style="margin-top:12px"><button class="btn ghost" style="margin:0" data-act="wk" data-v="${r.id}">No action yet</button><button class="btn" style="margin:0" data-act="ws" data-v="${r.id}">Work started</button></div>`:`<label class="drop s"><input type="file" accept="image/*" capture="environment" hidden data-after="${r.id}"><span>${r.after?`<img src="${r.after}" alt="After photo">`:ic('cam')+'<b>Take the after photo</b>'}</span></label><div class="two"><button class="btn" style="margin:0" data-act="fixed" data-v="${r.id}">Light is on</button><button class="btn red" style="margin:0" data-act="reopen" data-v="${r.id}">Not fixed</button></div>`)+'</div>').join('')}
+function tIdle(){$('#ck').textContent=fmt(S.dur);$('#tb').innerHTML=`<div class="chips" style="margin-top:16px">${[[10,'Demo 10 sec'],[300,'5 min'],[900,'15 min'],[1800,'30 min']].map(([s,l])=>`<button data-act="dur" data-v="${s}" class="${S.dur==s?'on':''}">${l}</button>`).join('')}</div><button class="btn" data-act="tstart">Start check-in</button>`}
+function tAsk(){let l=30;$('#ck').textContent='Are you OK?';$('#tm').textContent='Reply within 30 seconds or we alert your circle.';$('#tb').innerHTML=`<div class="clock q c" id="c2">${l}</div><button class="btn" data-act="tdone">I’m OK</button><button class="btn red" data-act="tsos">I need help</button>`;every(()=>{l--;$('#c2').textContent=l;if(l<=0){clr();S.auto=1;go('sos',true)}},1000)}
+async function fire(){const box=$('#sl');if(!box)return;$('#sm').textContent='Sending SOS to the backend…';$('#hold').style.display='none';box.innerHTML='<div class="card" id="sc">Sending alert and checking location…</div><a class="btn red" href="tel:112">Call 112 now</a><button class="btn ghost" data-act="safe">I am safe, cancel the alert</button>';await triggerDangerAlert();if(S.danger){const el=$('#sc');if(el)el.textContent='SOS alert created. Check the delivery result below and call 112 directly if you are in immediate danger.'}}
+function ring(n){const o=document.createElement('div');o.className='call';o.innerHTML=`<p>Incoming call</p><h2>${esc(n)}</h2><p class="mut">Mobile</p><div class="ca"><button class="rd" data-x aria-label="Decline">${ic('phone',26)}</button><button class="gr" data-y aria-label="Accept">${ic('phone',26)}</button></div>`;app.appendChild(o);o.querySelector('[data-x]').onclick=()=>o.remove();o.querySelector('[data-y]').onclick=()=>{let s=0;o.innerHTML=`<p>Connected</p><h2>${esc(n)}</h2><p class="mut" id="cs">00:00</p><div class="ca"><button class="rd" data-x aria-label="End call">${ic('phone',26)}</button></div>`;const t=setInterval(()=>{s++;const e=$('#cs');e?e.textContent=fmt(s):clearInterval(t)},1000);o.querySelector('[data-x]').onclick=()=>{clearInterval(t);o.remove()}}}
+const hav=(a,b,c,d)=>{const r=x=>x*Math.PI/180,x=r(c-a),y=r(d-b),h=Math.sin(x/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(y/2)**2;return 2*6371e3*Math.asin(Math.sqrt(h))};
+const dtxt=m=>m<1000?Math.round(m)+' m':(m/1000).toFixed(1)+' km',ZL={police:'Police station',hospital:'Hospital',pharmacy:'Pharmacy'};
+function getHere(cb){const fail=()=>{S.here=null;toast('Real GPS location unavailable. Enable location permission and try again.');};if(!navigator.geolocation)return fail();navigator.geolocation.getCurrentPosition(p=>{S.here={la:p.coords.latitude,ln:p.coords.longitude};cb()},fail,{enableHighAccuracy:true,timeout:10000})}
+let WID=null,JI=null,JQ=null,JMap=null,JL=null,JM=null;
+function jstop(){clearInterval(JI);clearInterval(JQ);if(WID!=null&&navigator.geolocation)navigator.geolocation.clearWatch(WID);WID=null}
+function jend(res){const j=S.jr;if(!j)return;jstop();S.jh.push({to:j.to,km:j.km.toFixed(2),min:Math.max(1,Math.round((Date.now()-j.t0)/6e4)),res});S.jr=null}
+function jpos(la,ln){const j=S.jr;if(!j)return;S.here={la,ln};const p=j.pts[j.pts.length-1];if(p){const d=hav(p[0],p[1],la,ln);j.last=Date.now();if(d<3)return;j.km+=d/1000}j.mv=Date.now();j.pts.push([la,ln]);j.last=Date.now();if(JMap){JM?JM.setLatLng([la,ln]):JM=L.circleMarker([la,ln],{radius:9,color:'#0F1B3D',weight:3,fillColor:'#FFC24B',fillOpacity:1}).addTo(JMap);JL.addLatLng([la,ln]);JMap.setView([la,ln],17)}}
+function jprompt(){const j=S.jr,p=$('#jp');if(p)p.innerHTML=`<div class="card" style="border-color:var(--red)"><b>Are you OK?</b><p class="mut sm">${esc(j.why)} We alert your circle if you do not reply.</p><div class="clock q c" id="jq">${j.ql}</div><button class="btn" data-act="jok">I’m OK, continue</button></div>`}
+function jask(why){const j=S.jr;j.ask=true;j.why=why;j.ql=30;clearInterval(JQ);if(cur()!='journey')go('journey');else jprompt();JQ=setInterval(()=>{j.ql--;const e=$('#jq');if(e)e.textContent=j.ql;if(j.ql<=0){jend('Alert sent');S.auto=1;go('sos')}},1000)}
+function jtick(){const j=S.jr;if(!j)return jstop();const n=Date.now(),set=(i,v)=>{const e=$('#'+i);if(e)e.textContent=v};if(j.demo&&!j.paused){j.sim.la+=.00003;j.sim.ln+=.00002;jpos(j.sim.la,j.sim.ln)}
+set('je',fmt(Math.floor((n-j.t0)/1000)));set('jr',j.eta>n?fmt(Math.ceil((j.eta-n)/1000)):'Overdue');set('jk',j.km.toFixed(2)+' km');set('jl',j.last?Math.round((n-j.last)/1000)+' s ago':'Waiting for GPS');
+if(!j.ask){if(n>j.eta)jask('You are past your expected arrival time.');else if(n-j.mv>(j.demo?2e4:18e4))jask('You have not moved for a while.')}}
+function jidle(b){b.innerHTML=`<label style="margin-top:0">Where are you going?</label><input id="jd" placeholder="Destination or landmark"><label>Expected time to arrive</label><div class="chips">${[[1,'Demo 1 min'],[15,'15 min'],[30,'30 min'],[45,'45 min']].map(([m,l])=>`<button data-act="jm" data-v="${m}" class="${S.jmin==m?'on':''}">${l}</button>`).join('')}</div><label>Share live location with</label>${S.contacts.length?S.contacts.map((c,i)=>`<label class="sw" style="margin:6px 0"><input type="checkbox" class="jc" value="${i}" checked>${esc(c.n)}</label>`).join(''):'<p class="mut sm">Add a trusted contact first.</p><button class="btn ghost" data-go="guard">Open Guardian circle</button>'}<label class="sw"><input type="checkbox" id="jdemo">Demo walk (simulated GPS, for testing indoors)</label><button class="btn" data-act="jstart">Start journey</button>${S.jh.length?'<h3>Past journeys</h3>'+S.jh.slice(-3).reverse().map(j=>`<div class="row"><span style="flex:1"><b>${esc(j.to)}</b><small>${j.km} km in ${j.min} min</small></span><span class="tag ${j.res=='Arrived safely'?'s4':'sd'}">${j.res}</span></div>`).join(''):''}`}
+function jview(){const j=S.jr,b=$('#jb');if(!b)return;if(!j)return jidle(b);
+b.innerHTML=`<div id="jp"></div><div id="jm" class="jm"></div><div class="stats" style="margin-top:12px"><div class="card"><b id="je">00:00</b><small>Time elapsed</small></div><div class="card"><b id="jr">--</b><small>Time left</small></div><div class="card"><b id="jk">0.00 km</b><small>Distance</small></div><div class="card"><b id="jl">--</b><small>Last GPS update</small></div></div><p class="mut sm" style="margin-top:12px">Going to ${esc(j.to)}. Sharing with ${esc(j.sh.join(', '))}.</p><button class="btn ghost" data-act="jshare">Share live location link</button>${j.demo?'<button class="btn ghost" data-act="jpause">'+(j.paused?'Resume demo walk':'Stop moving (test the alert)')+'</button>':''}<button class="btn" data-act="jarrive">I have arrived safely</button><button class="btn red" data-act="jhelp">I need help</button>`;
+JM=null;JMap=null;if(typeof L!='undefined'){const e=j.pts[j.pts.length-1];JMap=L.map('jm',{zoomControl:false}).setView(e||[22,79],e?17:4);L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(JMap);JL=L.polyline(j.pts,{color:'#D98A00',weight:5}).addTo(JMap);if(e)JM=L.circleMarker(e,{radius:9,color:'#0F1B3D',weight:3,fillColor:'#FFC24B',fillOpacity:1}).addTo(JMap)}else $('#jm').innerHTML='<p class="mut sm c" style="padding:90px 0">The map needs an internet connection.</p>';if(j.ask)jprompt();jtick()}
+function hview(){const b=$('#hb');if(!b)return;const h=S.here,q=S.hr[S.hr.length-1];let o='';if(q)o+=`<div class="card best"><div class="rh"><b>Your request</b><span class="tag s${q.st=='Accepted'?4:q.st=='Pending'?2:-1}">${q.st}</span></div><p class="sm">${q.st=='Pending'?'Waiting for '+esc(q.hn)+' to accept.':q.st=='Accepted'?esc(q.hn)+' is on the way, about '+Math.max(1,Math.round(q.d/80))+' min on foot.':esc(q.hn)+' could not help. Try another helper.'}</p></div>`;
+if(!h)return b.innerHTML=o+'<p class="mut sm c" style="margin-top:20px">Tap the button above to see helpers near you.</p>';
+const H=S.helpers.filter(x=>x.v&&x.av).map(x=>({...x,d:hav(h.la,h.ln,h.la+x.off[0],h.ln+x.off[1])})).sort((a,b)=>a.d-b.d);
+b.innerHTML=o+(H.length?H.map(x=>`<div class="row"><span class="ico">${ic('helper',20)}</span><span style="flex:1"><b>${esc(x.n)}</b><small>Verified, ${dtxt(x.d)} away</small></span><button class="ib" style="width:auto;padding:0 12px;font:500 13px Poppins,sans-serif" data-act="hreq" data-v="${x.id}" ${q&&q.st=='Pending'?'disabled':''}>Request</button></div>`).join(''):'<p class="mut sm c" style="margin-top:20px">No verified helper is available nearby right now. Call 112 if you need urgent help.</p>')}
+function zview(){const b=$('#zb');if(!b)return;const Z=S.zn.filter(z=>S.zf=='all'||z.k==S.zf);b.innerHTML=Z.length?Z.map(z=>`<div class="row"><span class="ico">${ic('zone',20)}</span><span style="flex:1"><b>${esc(z.n)}</b><small>${ZL[z.k]}, ${dtxt(z.d)} away</small></span><a class="ib" style="width:auto;padding:0 12px;text-decoration:none;font:500 13px Poppins,sans-serif" href="https://www.google.com/maps/dir/?api=1&destination=${z.la},${z.ln}&travelmode=walking" target="_blank" rel="noopener">Directions</a></div>`).join(''):'<p class="mut sm c" style="margin-top:20px">'+(S.zn.length?'Nothing of this type within 2 km.':'Tap Find near me to load real places around you.')+'</p>'}
+function vreq(){return `<label class="sw"><input type="checkbox" id="avl" ${S.helpers[0].av?'checked':''}>I am available for help requests</label>`+(S.hr.length?S.hr.slice().reverse().map(q=>`<div class="card"><div class="rh"><b>${q.id}</b><span class="tag s${q.st=='Accepted'?4:q.st=='Pending'?2:-1}">${q.st}</span></div><p>A citizen asked for help, ${Math.round(q.d)} m away.</p><p class="mut sm">Sent to ${esc(q.hn)}, ${Math.round((Date.now()-q.t)/6e4)} min ago</p>${q.st=='Pending'?`<div class="two" style="margin-top:12px"><button class="btn" style="margin:0" data-act="hacc" data-v="${q.id}">Accept</button><button class="btn ghost" style="margin:0" data-act="hdec" data-v="${q.id}">Decline</button></div>`:''}</div>`).join(''):'<p class="mut c" style="margin-top:24px">No help requests right now.</p>')}
+// --- Voice SOS: backend login, contact sync, "help" x3 detection, danger alert ------------
+
+// Demo shortcut: this prototype's login screen does not collect a password for citizens,
+// but the real backend needs one, so we derive a fixed one from the phone number and
+// silently register+log in behind the scenes. Replace this with real signup before production.
+async function apiLogin(phone){
+  const email=phone+'@citizen.suraksha-setu.demo',password='Demo@'+phone+'!1';
+  try{ await fetch(API_BASE+'/api/auth/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Citizen '+phone.slice(-4),email,password})}); }catch(e){}
+  try{
+    const r=await fetch(API_BASE+'/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
+    const d=await r.json();
+    if(r.ok){S.token=d.token;S.uid=d.user.id;}
+    else toast('Backend not reachable. Voice SOS needs the backend running.');
+  }catch(e){ toast('Backend not reachable. Voice SOS needs the backend running.'); }
+}
+
+async function syncContacts(){
+  if(!S.token||!S.contacts.length) return;
+  try{
+    await fetch(API_BASE+'/api/contacts',{method:'PUT',headers:{'Content-Type':'application/json',Authorization:'Bearer '+S.token},body:JSON.stringify({contacts:S.contacts.map(c=>({name:c.n,phone:c.p}))})});
+  }catch(e){}
+}
+
+let REC=null,helpTimes=[];
+async function requestMediaPermissions(){
+  if(!navigator.mediaDevices?.getUserMedia){toast('Camera/microphone access requires HTTPS or localhost and a supported browser.');return}
+  try{const stream=await navigator.mediaDevices.getUserMedia({audio:true,video:true});stream.getTracks().forEach(t=>t.stop());S.mediaReady=true;localStorage.setItem('ss-media-ready','1');toast('Camera and microphone permission granted. They are not recording now.');render();}
+  catch(err){S.mediaReady=false;localStorage.removeItem('ss-media-ready');toast('Permission not granted. You can still use SOS and call 112.');render();}
+}
+function mediaMime(){return ['video/webm;codecs=vp8,opus','video/webm','video/mp4'].find(t=>window.MediaRecorder&&MediaRecorder.isTypeSupported(t))||''}
+async function uploadMediaBlob(blob,kind){
+  if(!S.danger||!S.token||!blob||blob.size===0)return;
+  const fd=new FormData();fd.append('media',blob,`${kind}-${Date.now()}.webm`);fd.append('kind',kind);
+  try{const r=await fetch(API_BASE+'/api/alerts/'+S.danger.id+'/media',{method:'POST',headers:{Authorization:'Bearer '+S.token},body:fd});const d=await r.json();if(!r.ok)throw new Error(d.error||'Upload failed');const el=$('#mediaStatus');if(el)el.textContent='Recording chunks securely uploaded to backend.';}
+  catch(e){const el=$('#mediaStatus');if(el)el.textContent='Recording active, but upload failed. Check connection.';}
+}
+async function startSOSRecording(){
+  if(!S.mediaReady){const el=$('#mediaStatus');if(el)el.textContent='Camera/microphone permission was not enabled beforehand; SOS and location can still work.';return}
+  if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder){const el=$('#mediaStatus');if(el)el.textContent='This browser does not support recording. SOS and location can still work.';return}
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true,video:{facingMode:'environment'}});S.mediaStream=stream;
+    const mime=mediaMime();const recorder=new MediaRecorder(stream,mime?{mimeType:mime}:undefined);S.mediaRecorder=recorder;
+    recorder.ondataavailable=e=>{if(e.data&&e.data.size)uploadMediaBlob(e.data,'audio-video')};
+    recorder.onerror=()=>{const el=$('#mediaStatus');if(el)el.textContent='Browser recording error. SOS remains active.'};
+    recorder.start(10000);const el=$('#mediaStatus');if(el)el.textContent='AUDIO + VIDEO RECORDING ACTIVE — chunks upload about every 10 seconds while this page remains active.';
+  }catch(e){const el=$('#mediaStatus');if(el)el.textContent='Recording could not start. SOS and location can still work.'}
+}
+function stopSOSRecording(){try{if(S.mediaRecorder&&S.mediaRecorder.state!=='inactive')S.mediaRecorder.stop()}catch(e){}try{S.mediaStream?.getTracks().forEach(t=>t.stop())}catch(e){}S.mediaRecorder=null;S.mediaStream=null;}
+
+function startVoiceSOS(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){toast('This browser cannot listen for voice. Use Chrome on Android.');S.voiceOn=false;render();return;}
+  if(!S.contacts.length){toast('Add a trusted contact first');S.voiceOn=false;render();return;}
+  S.voiceOn=true;helpTimes=[];
+  REC=new SR();REC.continuous=true;REC.interimResults=true;REC.lang='en-IN';
+  REC.onresult=e=>{
+    for(let i=e.resultIndex;i<e.results.length;i++){
+      const t=e.results[i][0].transcript.toLowerCase();
+      const matches=(t.match(/\bhelp\b/g)||[]).length;
+      for(let k=0;k<matches;k++)helpTimes.push(Date.now());
+    }
+    helpTimes=helpTimes.filter(t=>Date.now()-t<8000);
+    const el=$('#vstatus');if(el)el.textContent='Listening… heard "help" '+helpTimes.length+' time(s) in the last 8 sec';
+    if(helpTimes.length>=3){helpTimes=[];triggerDangerAlert();}
+  };
+  REC.onerror=()=>{};
+  REC.onend=()=>{if(S.voiceOn){try{REC.start();}catch(e){}}};
+  try{REC.start();}catch(e){}
+}
+function stopVoiceSOS(){S.voiceOn=false;if(REC){REC.onend=null;try{REC.stop();}catch(e){}REC=null;}helpTimes=[];const el=$('#vstatus');if(el)el.textContent='Off';}
+
+let LOC_INT=null;
+async function triggerDangerAlert(){
+  if(S.danger)return;
+  if(!S.token)return toast('Not connected to the backend. Could not send alert.');
+  if(!navigator.geolocation)return toast('This device has no GPS.');
+  toast('"Help" heard 3 times. Sending alert…');
+  navigator.geolocation.getCurrentPosition(async pos=>{
+    const lat=pos.coords.latitude,lng=pos.coords.longitude;
+    try{
+const r = await fetch(API_BASE + '/api/alerts/danger', {
+  method: 'POST',
+  headers: {
+     
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  },
+  body: JSON.stringify({ lat, lng })
+});      const d=await r.json();
+      if(!r.ok)return toast(d.error||'Could not send alert.');
+      S.danger={id:d.alertId};
+      const delivered=(d.notified||[]).filter(x=>x.ok).length;
+      toast(delivered>0?`Alert created; ${delivered} contact delivery attempt(s) succeeded.`:'Alert created, but WhatsApp delivery is not confirmed. Call 112 if urgent.');
+      render();
+      startSOSRecording();
+      LOC_INT=setInterval(()=>{
+        navigator.geolocation.getCurrentPosition(p=>{
+          fetch(API_BASE+'/api/alerts/'+S.danger.id+'/location',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+S.token},body:JSON.stringify({lat:p.coords.latitude,lng:p.coords.longitude})}).catch(()=>{});
+        },()=>{});
+      },15000);
+    }catch(err){toast('Network error. Could not send alert.');}
+  },()=>toast('Could not get your location. Enable GPS and try again.'),{enableHighAccuracy:true,timeout:10000});
+}
+async function cancelDangerAlert(){
+  if(!S.danger)return;
+  try{await fetch(API_BASE+'/api/alerts/'+S.danger.id+'/cancel',{method:'POST',headers:{Authorization:'Bearer '+S.token}});}catch(e){}
+  clearInterval(LOC_INT);LOC_INT=null;stopSOSRecording();S.danger=null;toast('Alert cancelled and recording stopped');render();
+}
+function vview(){const b=$('#vb');if(!b)return;b.innerHTML=`<p class="mut sm">Enable permissions before an emergency. Voice SOS listens for “help” three times. Camera and microphone are only used for recording after an SOS alert is created, while this page stays active.</p>${S.contacts.length?'':'<p class="mut sm" style="color:var(--red)">Add at least one trusted contact in Guardian circle first.</p>'}<button class="btn ghost" data-act="mediaperm">${S.mediaReady?'Camera + microphone permission granted':'Enable camera + microphone permissions'}</button><p class="mut sm">${S.mediaReady?'Permission was checked. No recording is running until an SOS alert.':'Tap above and allow both permissions in the browser prompt.'}</p><label class="sw"><input type="checkbox" id="vtoggle" ${S.voiceOn?'checked':''} ${S.contacts.length?'':'disabled'}>Listen for the word “help”</label><p class="mut sm" id="vstatus">${S.voiceOn?'Listening…':'Off'}</p><p class="mut sm" id="mediaStatus">${S.danger?'SOS active. Recording status will appear here.':'No recording active.'}</p>${S.danger?'<div class="card" style="border-color:var(--red);margin-top:14px"><b>SOS alert active</b><p class="sm">Alert created. Contact delivery depends on WhatsApp configuration; use the Call 112 button for emergencies.</p><button class="btn red" data-act="dcancel">I am safe, cancel the alert</button></div>':''}`;const t=$('#vtoggle');if(t)t.onchange=e=>e.target.checked?startVoiceSOS():stopVoiceSOS();}
+
+const SC={
+voice:{t:'Voice SOS',r:()=>'<div id="vb"></div>',i:vview},
+journey:{t:'Live journey',r:()=>'<div id="jb"></div>',i:jview},
+helpers:{t:'Verified helpers',r:()=>`<p class="mut sm">Rotaract volunteers verified by the district team. Only available helpers are shown.</p><button class="btn ghost" data-act="hloc">${ic('pin',18)}<span id="hl">Use my location</span></button><div id="hb"></div>`,i:hview},
+zones:{t:'Safe zones',r:()=>`<p class="mut sm">Police stations, hospitals and pharmacies within 2 km, from OpenStreetMap.</p><button class="btn ghost" data-act="zfind">${ic('pin',18)}<span id="zt">Find near me</span></button><div class="chips" style="margin-top:14px">${[['all','All'],['police','Police'],['hospital','Hospitals'],['pharmacy','Pharmacies']].map(([k,l])=>`<button data-act="zf" data-v="${k}" class="${S.zf==k?'on':''}">${l}</button>`).join('')}</div><div id="zb"></div>`,i:zview},
+splash:{r:()=>`<div class="splash">${logo(270)}<p class="mut">Har raasta, surakshit raasta</p><div class="bar"><i></i></div></div>`,i:()=>setTimeout(()=>cur()=='splash'&&root('login'),2000)},
+login:{r:()=>`<div class="hero">${logo(190)}<h2>Welcome</h2><p class="mut">Choose how you want to continue.</p></div><div class="seg">${[['citizen','Citizen'],['volunteer','Volunteer'],['admin','Admin']].map(([k,l])=>`<button data-act="role" data-v="${k}" class="${S.role==k?'on':''}">${l}</button>`).join('')}</div><div class="card" style="margin-top:0">${S.role=='citizen'?'<label>Mobile number</label><input id="f1" inputmode="numeric" maxlength="10" placeholder="10-digit number">':S.role=='volunteer'?'<label>Rotaract club ID</label><input id="f1" placeholder="Your club ID">':'<label>Admin email</label><input id="f1" type="email" placeholder="name@district.org">'}${S.role=='citizen'?'':'<label>Password</label><input id="f2" type="password" placeholder="Password">'}<button class="btn" data-act="login">Continue</button></div><p class="mut sm c" style="margin-top:16px">Volunteers are verified Rotaract members.</p>`},
+home:{r:()=>`<p class="mut sm">Stay safe out there</p><h2>Where to today?</h2><button class="sos" data-go="sos">${ic('alert',28)}<span><b>SOS</b><small>Hold to alert contacts and volunteers</small></span></button>${S.jr?'<button class="row" data-go="journey" style="border-color:var(--amb)"><span class="ico">'+ic('live')+'</span><span><b>Journey in progress</b><small>Tap to view live tracking</small></span></button>':''}<div class="grid">${TOOLS.map(([g,i,t,s])=>`<button class="tool" data-go="${g}"><span class="ico">${ic(i)}</span><b>${t}</b><small>${s}</small></button>`).join('')}</div><button class="row" data-go="mine"><span class="ico">${ic('list')}</span><span><b>My reports</b><small>${S.reports.length} reports, follow each step</small></span></button>`},
+report:{t:'Report a dark spot',r:()=>`<label class="drop"><input type="file" accept="image/*" capture="environment" hidden id="pf"><span id="pv">${S.photo?`<img src="${S.photo}" alt="Reported spot">`:ic('cam',30)+'<b>Take a photo</b><small>A dark photo is fine, the dark is the problem</small>'}</span></label><button class="btn ghost" data-act="pin">${ic('pin',18)}<span id="pt">${S.loc||'Drop my location pin'}</span></button><label>What is the problem?</label><div class="chips">${['Light not working','No light at all','Isolated lane','Broken footpath'].map(c=>`<button data-act="cat" data-v="${c}" class="${S.cat==c?'on':''}">${c}</button>`).join('')}</div><label>Note (optional)</label><textarea id="note" rows="3" placeholder="Landmark, or when you noticed it"></textarea><button class="btn" data-act="send">Submit report</button>`,i:()=>{$('#pf').onchange=e=>{const f=e.target.files[0];if(!f)return;const fr=new FileReader();fr.onload=()=>{S.photo=fr.result;$('#pv').innerHTML=`<img src="${S.photo}" alt="Reported spot">`};fr.readAsDataURL(f)}}},
+mine:{t:'My reports',r:()=>S.reports.slice().reverse().map(r=>`<div class="card">${thumb(r)}<div class="rh"><b>${r.id}</b><span class="tag s${r.st}">${stl(r)}</span></div><p>${esc(r.cat)}</p><p class="mut sm">${esc(r.place)}, ${age(r)} days ago</p>${r.st<0?'':`<div class="steps">${ST.map((_,i)=>`<i class="${i<=r.st?'on':''}"></i>`).join('')}</div>`}</div>`).join('')},
+route:{t:'Safe route',r:()=>'<label>From</label><input id="rf" placeholder="Your location"><label>To</label><input id="rt" placeholder="Where are you going?"><button class="btn" data-act="find">Find the safest route</button><div id="rr"></div>'},
+timer:{t:'Check-in timer',r:()=>'<div class="card c"><div class="clock" id="ck">00:00</div><p class="mut sm" id="tm">Pick how long you need to reach. If you do not check in, we alert your circle.</p></div><div id="tb"></div>',i:tIdle},
+sos:{t:'SOS',r:()=>`<div class="c"><p class="mut" id="sm" style="margin-top:12px">${S.auto?'No reply received. Sending alerts now.':'Press and hold the button for 2 seconds.'}</p><button class="bigsos" id="hold" aria-label="Hold for 2 seconds to send SOS"><i></i>${ic('alert',44)}<b>HOLD</b></button></div><div id="sl"></div>`,i:()=>{if(S.auto){S.auto=0;fire();return}const h=$('#hold');let tm;h.onpointerdown=e=>{e.preventDefault();h.classList.add('go');tm=setTimeout(()=>{h.classList.remove('go');fire()},2000)};h.onpointerup=h.onpointerleave=h.onpointercancel=()=>{clearTimeout(tm);h.classList.remove('go')}}},
+guard:{t:'Guardian circle',r:()=>`<p class="mut sm">Add 1 to 4 people you trust. Voice SOS and Live journey alerts go to everyone in this circle. You have ${S.contacts.length} of 4 added.</p><div class="card"><label style="margin-top:0">Name</label><input id="gn" placeholder="For example, Mom"><label>Mobile number</label><input id="gp" inputmode="numeric" maxlength="10" placeholder="10-digit number"><button class="btn ${S.contacts.length>=4?'off':''}" data-act="gadd">Add to circle</button></div><label class="sw"><input type="checkbox" id="live" ${S.live?'checked':''}>Share my live location during check-ins</label><div id="gl">${gl()}</div>`},
+fake:{t:'Fake call',r:()=>`<div class="card"><label style="margin-top:0">Caller name</label><input id="fn" value="Mom"><label>Ring after</label><div class="chips">${[[0,'Now'],[10,'10 sec'],[30,'30 sec']].map(([s,l])=>`<button data-act="fd" data-v="${s}" class="${S.fd==s?'on':''}">${l}</button>`).join('')}</div><button class="btn" data-act="fstart">Start fake call</button></div><p class="mut sm c" style="margin-top:16px">The screen looks like a real incoming call.</p>`},
+card:{t:'Emergency card',r:()=>`<div class="card"><label style="margin-top:0">Full name</label><input id="cn" value="${esc(S.card.n||'')}" placeholder="Your name"><label>Blood group</label><select id="cb">${['Select','A+','A-','B+','B-','O+','O-','AB+','AB-'].map(b=>`<option ${S.card.b==b?'selected':''}>${b}</option>`).join('')}</select><label>Important notes</label><input id="cm" value="${esc(S.card.m||'')}" placeholder="Allergies, medicines"><label>Emergency contact</label><input id="cc" value="${esc(S.card.c||'')}" placeholder="Name and number"><button class="btn" data-act="csave">Save card</button></div><div id="cv">${cv()}</div>`},
+vol:{r:()=>`<h2>Volunteer dashboard</h2><p class="mut sm">Verify spots, track repairs and confirm fixes.</p><div class="seg">${[['v','Verify'],['f','Follow-up'],['b','Before/after'],['r','Requests']].map(([k,l])=>`<button data-act="vt" data-v="${k}" class="${S.vt==k?'on':''}">${l}</button>`).join('')}</div>${vlist()}`},
+adm:{r:()=>{const R=S.reports,f=R.filter(r=>r.st==4),avg=f.length?Math.round(f.reduce((a,r)=>a+(r.fx-r.d)/D,0)/f.length):0,del=R.filter(r=>(r.st==2||r.st==3)&&age(r)>14);return`<h2>Admin dashboard</h2><p class="mut sm">Every report, from first photo to fix.</p><div class="stats"><div class="card"><b>${R.length}</b><small>Reports</small></div><div class="card"><b>${R.filter(r=>r.st==0).length}</b><small>To verify</small></div><div class="card"><b>${R.filter(r=>r.st==2||r.st==3).length}</b><small>In progress</small></div><div class="card"><b>${avg} days</b><small>Average time to fix</small></div></div><h3>Helper verification</h3>${S.helpers.filter(h=>!h.v).map(h=>`<div class="card" style="margin-top:10px"><b>${esc(h.n)}</b><small>${esc(h.club)}, ID check pending</small><button class="btn" data-act="hver" data-v="${h.id}">Verify helper</button></div>`).join('')||'<p class="mut sm">All helpers are verified.</p>'}<h3>Delayed more than 14 days</h3>${del.length?del.map(r=>`<div class="card" style="margin-top:10px"><div class="rh"><b>${r.id}</b><span class="tag sd">${age(r)} days</span></div><p>${esc(r.cat)}</p><p class="mut sm">${esc(r.place)}</p><button class="btn ${r.esc?'off':''}" data-act="esc" data-v="${r.id}">${r.esc?'Escalated to senior officer':'Escalate to senior officer'}</button></div>`).join(''):'<p class="mut sm">No delayed reports.</p>'}<h3>All reports</h3>${R.map(r=>`<div class="row" style="margin-top:8px"><span style="flex:1"><b>${r.id}</b><small>${esc(r.place)}</small></span><span class="tag s${r.st}">${stl(r)}</span></div>`).join('')}`}}};
+function render(){const n=cur(),s=SC[n],home=HOMES.includes(n),bare=n=='splash'||n=='login';
+app.innerHTML=(bare?'':`<header>${home?`<div class="lg">${logo(150)}</div><button class="ib" data-act="out" aria-label="Log out">${ic('out',18)}</button>`:`<button class="ib" data-act="back" aria-label="Back">${ic('back',18)}</button><h1>${s.t}</h1>`}</header>`)+`<main>${s.r()}</main>`;s.i&&s.i();app.scrollTop=0;scrollTo(0,0)}
+const byId=el=>S.reports.find(r=>r.id==el.dataset.v),ACT={mediaperm:()=>requestMediaPermissions(),
+jm(e){S.jmin=+e.dataset.v;document.querySelectorAll('.chips button').forEach(b=>b.classList.toggle('on',+b.dataset.v==S.jmin))},
+jstart(){const to=$('#jd').value.trim();if(!to)return toast('Enter your destination');if(!S.contacts.length)return toast('Add a trusted contact first');const sh=[...document.querySelectorAll('.jc:checked')].map(x=>S.contacts[+x.value].n);if(!sh.length)return toast('Pick at least one person to share with');const demo=$('#jdemo').checked,n=Date.now();if(!demo&&!navigator.geolocation)return toast('This device has no GPS. Use the demo walk');
+S.jr={to,sh,demo,t0:n,eta:n+S.jmin*6e4,pts:[],km:0,last:0,mv:n,ask:false,sim:{la:S.here?S.here.la:28.6139,ln:S.here?S.here.ln:77.209}};
+if(!demo)WID=navigator.geolocation.watchPosition(p=>jpos(p.coords.latitude,p.coords.longitude),()=>toast('Location is blocked. Allow it, or use the demo walk'),{enableHighAccuracy:true,maximumAge:2000});
+JI=setInterval(jtick,1000);jview()},
+jshare(){const j=S.jr,p=j.pts[j.pts.length-1];if(!p)return toast('Waiting for your first GPS point');const t='I am travelling to '+j.to+'. Track me live: https://www.google.com/maps?q='+p[0].toFixed(5)+','+p[1].toFixed(5);navigator.share?navigator.share({text:t}).catch(()=>{}):navigator.clipboard.writeText(t).then(()=>toast('Link copied. Paste it to your contact'),()=>toast('Could not copy the link'))},
+jpause(){const j=S.jr;j.paused=!j.paused;j.mv=Date.now();jview()},
+jok(){const j=S.jr;clearInterval(JQ);j.ask=false;j.mv=Date.now();j.eta=Math.max(j.eta,Date.now())+6e5;jview();toast('Thanks. Journey extended by 10 minutes')},
+jhelp(){clearInterval(JQ);jend('Help requested');S.auto=1;go('sos')},
+jarrive(){jend('Arrived safely');toast('Safe arrival recorded. Journey closed');root('home')},
+hloc(){getHere(()=>{$('#hl').textContent=S.here.demo?'Demo location, Delhi':'Location found';hview()})},
+hreq(e){const x=S.helpers.find(y=>y.id==e.dataset.v),d=Math.round(hav(S.here.la,S.here.ln,S.here.la+x.off[0],S.here.ln+x.off[1]));S.hr.push({id:'HR-'+(101+S.hr.length),hid:x.id,hn:x.n,d,t:Date.now(),st:'Pending'});toast('Request sent to '+x.n);hview()},
+hacc(e){S.hr.find(q=>q.id==e.dataset.v).st='Accepted';toast('Accepted. The citizen can see your arrival time');render()},
+hdec(e){S.hr.find(q=>q.id==e.dataset.v).st='Declined';toast('Request declined');render()},
+hver(e){S.helpers.find(h=>h.id==e.dataset.v).v=1;toast('Helper verified');render()},
+zfind(){getHere(()=>{const h=S.here;$('#zt').textContent='Searching nearby';fetch('https://overpass-api.de/api/interpreter?data='+encodeURIComponent(`[out:json][timeout:15];node(around:2000,${h.la},${h.ln})[amenity~"^(police|hospital|pharmacy)$"];out 60;`)).then(r=>r.json()).then(d=>{S.zn=d.elements.map(e=>({n:e.tags.name||'Unnamed '+ZL[e.tags.amenity].toLowerCase(),k:e.tags.amenity,la:e.lat,ln:e.lon,d:hav(h.la,h.ln,e.lat,e.lon)})).sort((a,b)=>a.d-b.d).slice(0,30);$('#zt').textContent=h.demo?'Demo location, Delhi':'Near your location';zview()}).catch(()=>{$('#zt').textContent='Find near me';toast('Could not load places. Check your internet')})})},
+zf(e){S.zf=e.dataset.v;document.querySelectorAll('.chips button').forEach(b=>b.classList.toggle('on',b.dataset.v==S.zf));zview()},
+back,out:()=>root('login'),role:e=>{S.role=e.dataset.v;render()},
+async login(){const a=$('#f1').value.trim(),b=($('#f2')||{}).value||'',r=S.role,ok=r=='citizen'?/^\d{10}$/.test(a):r=='volunteer'?a.length>2&&b.length>2:/\S+@\S+\.\S+/.test(a)&&b.length>2;if(!ok)return toast(r=='citizen'?'Enter a valid 10-digit number':'Check your details and try again');if(r=='citizen')await apiLogin(a);root(r=='citizen'?'home':r=='volunteer'?'vol':'adm')},
+pin(){const set=t=>{S.loc=t;$('#pt').textContent=t},demo='28.6139, 77.2090 (demo pin)';if(!navigator.geolocation)return set(demo);set('Finding your location');navigator.geolocation.getCurrentPosition(p=>set(p.coords.latitude.toFixed(4)+', '+p.coords.longitude.toFixed(4)),()=>set(demo),{timeout:6000})},
+cat(e){S.cat=e.dataset.v;document.querySelectorAll('.chips button').forEach(b=>b.classList.toggle('on',b.dataset.v==S.cat))},
+send(){if(!S.photo||!S.loc||!S.cat)return toast('Add a photo, a pin and the problem first');S.reports.push({id:'SS-'+(1001+S.reports.length),cat:S.cat,place:S.loc,note:$('#note').value.trim(),photo:S.photo,st:0,d:Date.now()});S.photo=null;S.loc='';S.cat='';toast('Report submitted');go('mine',true)},
+find(){const a=$('#rf').value.trim(),b=$('#rt').value.trim();if(!a||!b)return toast('Enter both places');const k=(a+b).length,R=[['Safest route',22+k%5,'2.1 km',93,'Well lit, busy, police 400 m away'],['Balanced',17+k%4,'1.8 km',78,'Mostly lit, a few quiet stretches'],['Fastest',12+k%3,'1.4 km',58,'Two dark stretches, few shops open']];$('#rr').innerHTML=R.map((r,i)=>`<div class="card ${i?'':'best'}">${i?'':'<span class="tag s4">Recommended</span>'}<div class="rh"><b>${r[0]}</b><span class="sm">${r[1]} min, ${r[2]}</span></div><div class="meter"><i style="width:${r[3]}%"></i></div><p class="mut sm">Safety score ${r[3]} out of 100. ${r[4]}.</p><button class="btn ${i?'ghost':''}" data-act="sr" data-v="${r[1]}">Start with check-in</button></div>`).join('')},
+sr(e){S.dur=+e.dataset.v*60;go('timer')},
+dur(e){S.dur=+e.dataset.v;tIdle()},
+tstart(){let l=S.dur;$('#tb').innerHTML='<button class="btn" data-act="tdone">I have reached safely</button>';$('#tm').textContent='Check-in running. Stay on your route.';const ck=$('#ck');ck.textContent=fmt(l);every(()=>{l--;ck.textContent=fmt(Math.max(l,0));if(l<=0){clr();tAsk()}},1000)},
+tdone(){clr();toast('Checked in. Glad you are safe');root('home')},
+tsos(){clr();S.auto=1;go('sos',true)},
+safe(){clr();toast('Alert cancelled');root('home')},
+gadd(){const n=$('#gn').value.trim(),p=$('#gp').value.trim();if(!n||!/^\d{10}$/.test(p))return toast('Enter a name and a 10-digit number');if(S.contacts.length>=4)return toast('You can add up to 4 trusted contacts.');S.contacts.push({n,p});$('#gl').innerHTML=gl();$('#gn').value='';$('#gp').value='';toast(n+' added to your circle');syncContacts();},
+grm(e){S.contacts.splice(+e.dataset.v,1);$('#gl').innerHTML=gl();syncContacts();},
+dcancel(){cancelDangerAlert();},
+fd(e){S.fd=+e.dataset.v;document.querySelectorAll('.chips button').forEach(b=>b.classList.toggle('on',+b.dataset.v==S.fd))},
+fstart(){const n=$('#fn').value.trim()||'Mom';toast(S.fd?'Your phone will ring in '+S.fd+' sec':'Ringing now');setTimeout(()=>ring(n),S.fd*1000)},
+csave(){const b=$('#cb').value;S.card={n:$('#cn').value.trim(),b:b=='Select'?'':b,m:$('#cm').value.trim(),c:$('#cc').value.trim()};if(!S.card.n)return toast('Add your name first');$('#cv').innerHTML=cv();toast('Card saved')},
+vt(e){S.vt=e.dataset.v;render()},
+near(e){byId(e).near=true;toast('You are within 20 m of the spot');render()},
+rreal(e){const r=byId(e);if(!r.near)return toast('Check you are at the spot first');r.st=2;toast('Verified. Letter sent to the authority');render()},
+rfake(e){const r=byId(e);if(!r.near)return toast('Check you are at the spot first');r.st=-1;toast('Marked as fake');render()},
+wk(e){byId(e).na=true;toast('Noted: no action yet')},
+ws(e){byId(e).st=3;toast('Marked: work started');render()},
+fixed(e){const r=byId(e);if(!r.after)return toast('Add the after photo first');r.st=4;r.fx=Date.now();toast('Marked as fixed');render()},
+reopen(e){const r=byId(e);r.st=2;r.after=null;toast('Reopened and sent back to follow-up');render()},
+esc(e){byId(e).esc=true;toast('Reminder sent to the senior officer');render()}};
+window.addEventListener('pagehide',()=>{stopVoiceSOS();stopSOSRecording();});
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g)return go(g.dataset.go);const a=e.target.closest('[data-act]');if(a&&ACT[a.dataset.act])ACT[a.dataset.act](a)});
+document.addEventListener('change',e=>{const t=e.target;if(t.id=='live')S.live=t.checked;if(t.id=='avl')S.helpers[0].av=t.checked?1:0;if(t.dataset.after&&t.files[0]){const r=S.reports.find(x=>x.id==t.dataset.after),fr=new FileReader();fr.onload=()=>{r.after=fr.result;render()};fr.readAsDataURL(t.files[0])}});
+render();
+</script></body></html>
